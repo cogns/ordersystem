@@ -4,6 +4,7 @@ import com.beyond.ordersystem.common.dto.CommonResDto;
 import com.beyond.ordersystem.product.domain.Product;
 import com.beyond.ordersystem.product.dto.ProductResDto;
 import com.beyond.ordersystem.product.dto.ProductSaveReqDto;
+import com.beyond.ordersystem.product.dto.ProductSearchDto;
 import com.beyond.ordersystem.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,8 +36,8 @@ public class ProductController {
 
 
     @GetMapping("/product/list")
-    public ResponseEntity<?> productList(Pageable pageable){
-        Page<ProductResDto> dtos = productService.productList(pageable);
+    public ResponseEntity<?> productList(ProductSearchDto searchDto, Pageable pageable){
+        Page<ProductResDto> dtos = productService.productList(searchDto, pageable);
         CommonResDto commonResDto = new CommonResDto(HttpStatus.OK, "OK", dtos);
         return new ResponseEntity<>(commonResDto, HttpStatus.OK);
     }

@@ -21,7 +21,6 @@ public class InitialDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("★☆★☆★☆★☆★☆★☆★☆★실    행   완   료☆★☆★☆★☆★☆★☆★☆★☆★");
         if (repository.findByEmail("admin@test.com").isEmpty()) {
             memberService.memberCreate(MemberSaveReqDto.builder()
                     .name("admin")
@@ -30,5 +29,16 @@ public class InitialDataLoader implements CommandLineRunner {
                     .role(Role.ADMIN)
                     .build());
         }
+
+    System.out.println();
+    System.out.print(
+            "  O)) O)  O))) O))))))      O)       O)))))))    O))) O))))))\n" +
+            "O))    O))     O))         O) ))     O))    O))       O))    \n" +
+            " O))           O))        O)  O))    O))    O))       O))    \n" +
+            "   O))         O))       O))   O))   O) O))           O))    \n" +
+            "      O))      O))      O)))))) O))  O))  O))         O))    \n" +
+            "O))    O))     O))     O))       O)) O))    O))       O))    \n" +
+            "  O)) O)       O))    O))         O))O))      O))     O))    \n" +
+            "                                                             ");
     }
 }
