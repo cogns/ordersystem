@@ -111,7 +111,7 @@ public class ProductService {
             product = productRepository.save(dto.toEntity());
             byte[] bytes = image.getBytes();
             String fileName = product.getId() + "_" + image.getOriginalFilename();
-            Path path = Paths.get("C:/Users/rnjsc/Desktop/tmp/", fileName);
+            Path path = Paths.get("/tmp/", fileName);
 //            local pc에 임시저장
             Files.write(path, bytes, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
 
